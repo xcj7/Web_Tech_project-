@@ -14,8 +14,8 @@
 	<?php
 
 	// define variables and set to empty values
-	$nameErr = $emailErr = $genderErr = $websiteErr = "";
-	$name = $email = $gender = $comment = $website = "";
+	$nameErr = $emailErr = $genderErr = $websiteErr = $birthdayErr=$blood_groupErr =$degrees_Err ="";
+	$name = $email = $gender = $comment = $website = $birthday= $blood_group=$degree_1=$degree_2=$degree_3=$MBBS=$FRCS=$MD="";
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	  if (empty($_POST["name"])) {
@@ -23,20 +23,20 @@
 	  } else {
 	    $name = test_input($_POST["name"]);
        
-        echo str_word_count("$name");
+        // echo str_word_count("$name");
 	    // check if name only contains letters and whitespace
-	    if (preg_match("/[a-zA-Z-. ]*$/",$name) && str_word_count($name)===2) {
+	    if ((preg_match("/[a-zA-Z-. ]*$/",$name) && str_word_count($name)===2)) {
             // if(str_word_count("$name")==2)
             // {
-              
+				$nameErr=" right format .";
                 
             // }
         
 	    }
-        else{
-            $nameErr = "Only letters and white space allowed";
+		if (!(preg_match("/[a-zA-Z-. ]*$/",$name) && str_word_count($name)===2)) {
+            $nameErr = "Only letters - . and white space allowed";
         }
-	  }
+	  } 
 
 
 
@@ -97,9 +97,44 @@
 	  } else {
 	    $gender = test_input($_POST["gender"]);
 	  }
+	
+
+	if (empty($_POST["birthday"])) {
+	    $birthdayErr = "Birthday is required";
+	  } else {
+	    $birthday = test_input($_POST["birthday"]);
+	  }
+	
+
+	if (empty($_POST["blood_group"]) || $_POST["blood_group"]=="none" ) {
+	    $blood_groupErr = "Blood_Group is required";
+	  } else {
+	    $blood_group = test_input($_POST["blood_group"]);
+	  }
+
+
+
+
+	  if (empty($_POST["MBBS"])) {
+	    $degrees_Err = " MBBS degree is required";
+	  }
+	 
+	  elseif($_POST["MBBS"]=="MBBS" &&  $_POST["FRCS"]=="FRCS" && empty($_POST["MD"])) {
+	    $degree_1 = test_input($_POST["MBBS"]);
+		$degree_2 = test_input($_POST["FRCS"]);
+	  }
+	  elseif (  $_POST["MBBS"]=="MBBS" && empty($_POST["FRCS"]) && $_POST["MD"]=="MD"  ) {
+		$degree_1 = test_input($_POST["MBBS"]);
+		$degree_3 = test_input($_POST["MD"]);
+	  }
+	  elseif (  $_POST["MBBS"]=="MBBS"  && $_POST["FRCS"]=="FRCS" && $_POST["MD"]=="MD" ) {
+		$degree_1 = test_input($_POST["MBBS"]);
+		$degree_2 = test_input($_POST["FRCS"]);
+		$degree_3 = test_input($_POST["MD"]);
+	  }
+	 
+	
 	}
-
-
 
 
 
@@ -155,6 +190,9 @@
 
           <label for="birthday">Birthday:</label>
       <input type="date" id="birthday" name="birthday">
+	  <span class="err">*
+	 		<?php echo $birthdayErr;?>
+	 	</span>
 
 
 
@@ -162,6 +200,7 @@
          <br>
          <label for="blood_group">Choose a blood group:</label>
     <select id="blood_group" name="blood_group">
+	<option value="none">None</option>
       <option value="A+">A+</option>
       <option value="A-">A-</option>
       <option value="B+">B+</option>
@@ -169,15 +208,25 @@
       <option value="O+">O+</option>
       <option value="O-">O-</option>
     </select>
+	<span class="err">*
+	 		<?php echo $blood_groupErr;?>
+	 	</span>
 
     <br>
    <h3>Degrees : </h3>
+   <span class="err">*
+   <?php echo $degrees_Err;?>
+	 	</span> 
   <input type="checkbox" id="MBBS" name="MBBS" value="MBBS">
   <label for="MBBS"> MBBS</label><br>
+ 
+  
   <input type="checkbox" id="FRCS" name="FRCS" value="FRCS">
   <label for="FRCS"> FRCS</label><br>
   <input type="checkbox" id="MD" name="MD" value="MD">
   <label for="MD"> MD</label>
+  
+   
 
 
 		<br>
@@ -191,7 +240,12 @@
 	 	echo $email . "<br>";
 	 	echo $gender . "<br>";
 	 	echo $comment . "<br>";
-	 	echo $website;
+	 	echo $website ."<br>";
+		echo $birthday ."<br>";
+		echo $blood_group."<br>";
+		 echo $degree_1 ."<br>";
+		 echo $degree_2 ."<br>";
+		 echo $degree_3 ."<br>";
 
 	  ?>
 </body>
