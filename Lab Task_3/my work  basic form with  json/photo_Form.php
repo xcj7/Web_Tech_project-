@@ -12,7 +12,7 @@
 	</form>
 <br>
 
-	<a href="sign_up.php"> Go Back :</a><br>
+	<a href="viewProfile.php"> Go Back :</a><br>
 
 </body>
 </html>

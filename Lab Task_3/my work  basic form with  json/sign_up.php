@@ -234,7 +234,8 @@
 	 	<input type="submit" value="Submit">
 	 </form>
 
-	 <?php 
+	 <?php
+	  
 
 	 	echo "<h1>Your input</h1>";
 	 	echo $name . "<br>";
@@ -251,3 +252,4 @@
 	  ?>
 </body>
 </html>
+

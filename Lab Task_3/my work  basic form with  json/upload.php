@@ -47,5 +47,6 @@ if ($uploadOk == 0) {
   }
 }
 ?>
-
+<br>
+<br>
 <a href="sign_up.php"> Go Back :</a><br>

@@ -56,6 +56,7 @@
                 <!-- <h3 align="">Append Data to JSON File</h3><br />                  -->
                 <form method="post">  
                      <?php   
+                     
                      if(isset($error))  
                      {  
                           echo $error;  
