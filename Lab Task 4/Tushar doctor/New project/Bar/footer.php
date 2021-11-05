@@ -13,7 +13,7 @@
 </style>
 </head>
 <body>
-<<footer class="footer">
+<footer class="footer">
 	<hr>
   	<p style="text-align: center; color : ForestGreen">Copyright &#169 2021</p>
      <hr>

@@ -35,6 +35,9 @@
                           foreach($data as $row)  
                           {  
                                echo '<tr>
+                               
+                               <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" >  
+                               
                                <td>'.$row["name"].'</td>
                                <td>'.$row["phone_number"].'</td>
                                <td>'.$row["e-mail"].'</td>
@@ -44,17 +47,15 @@
                                <td>'.$row["visiting_date"].'</td>
                                <td>'.$row["visiting_time"].'</td>
                                <td>'.$row["visiting_hospital"].'</td>
- 
-                               </tr>';  
-                          
-                             //  <a href="model/store_approval.php">Approved</a> 
+                               <td>
                                
+
+                               <input type="submit" name="submit" value="Submit" class="btn btn-info">
+
+                               </form>  
+                               </tr>';  
                           }  
-                          ?> 
-                           
-                           <?php 
-                             
-                             ?>
+                          ?>  
                      </table>  
                    </div>
                  </div>

@@ -21,9 +21,9 @@ require 'Controller/retrievePassword.php';
  <fieldset>
   <legend>Forgot Password</legend>
 
-  <label for="hemail">Enter Email :</label>
-  <input type="text" id="email" name="hemail">
-  <span class="error"> <?php echo $hemailErr;?></span><hr>
+  <label for="email">Enter Email :</label>
+  <input type="text" id="email" name="email">
+  <span class="error"> <?php echo $emailErr;?></span><hr>
 
   <input type="submit" value="Submit" class="btn btn-info">
  </fieldset>

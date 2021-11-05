@@ -1,30 +1,30 @@
 <?php 
-$hemailErr = "";
-$hemail = $msg ="";
+$emailErr = '';
+$email = $msg ='';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
   require 'Controller/checkEmail.php';
-  if (!empty($_POST["hemail"]) && $_POST['hemail']==$hemail) 
+  if (!empty($_POST["email"]) && $_POST['email']==$email) 
   {
     $msg ="<h1>We will sent you an Email</h1>";
   }
-  else if (empty($_POST["hemail"])) 
+  else if (empty($_POST["email"])) 
   {
-    $hemailErr = "Email is required";
+    $emailErr = "Email is required";
   }
   else 
   {
-    $hemail = test_input($_POST["email"]);
-    if (!filter_var($hemail, FILTER_VALIDATE_EMAIL)) 
+    $email = test_input($_POST["email"]);
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
     {
-      $hemailErr = "Invalid email format";
-      $hemail="";
+      $emailErr = "Invalid email format";
+      $email="";
     }
     else
     {
-      $hemailErr ="Invalid Email";
-      $hemail=""; 
+      $emailErr ="Invalid Email";
+      $email=""; 
     }
   }
 }
