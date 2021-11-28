@@ -1,0 +1,125 @@
+.logo
+{
+	width: 13.5%;
+}
+.p
+{
+	width: 55%;
+}
+.welcome
+{
+	text-align: center;
+}
+.right
+{
+	float: right;
+	margin-right: 50px;
+}
+.left
+{
+	float: left;
+	margin-left: 50px;
+}
+
+.foot 
+{
+	left: 0%;
+   	bottom: 0%;
+   	width: 100%;
+   	text-align: center;
+}
+.textCenter
+{
+	text-align: center;
+}
+
+.error 
+{
+	color: #FF0000;
+}
+.div
+{
+  display: flex;
+  justify-content: center;
+}
+
+
+.viewProfileDiv
+{
+	margin-left: 25%; 
+	margin-top: 1%;
+}
+.viewProfileFieldset
+{
+	width: 850px;
+}
+.justRight
+{
+	float: right;
+}
+.justLeft
+{
+	float: left;
+}
+.justCenter
+{
+	float: center;
+}
+.proPic
+{
+	width:25%;
+}
+
+
+table, th, td {
+  border: 1px solid black;
+}
+
+/* ////////////////////////////////////////////// */
+.flex-container {
+	display: flex;
+	flex-wrap: wrap;
+	background-color: DodgerBlue;
+  }
+  
+  .flex-container > div {
+	background-color: #f1f1f1;
+	width: 100px;
+	margin: 10px;
+	text-align: center;
+	line-height: 75px;
+	font-size: 30px;
+  }
+  .header_table{
+    background: silver;
+     grid-area: header;
+    
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+
+}
+  .left_table{
+    background:wheat;
+     grid-area: left;
+    text-align: center;
+}
+.right_table{
+    background: whitesmoke;
+     grid-area: right;
+     text-align: center;
+}
+.footer_table{
+    background: khaki;
+     grid-area: footer;
+     text-align: center;
+}
+.container_table{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 100px 800px 100px;
+    grid-template-areas:
+    "header_table header_table"
+    "left_table right_table"
+    "footer_table footer_table";
+}

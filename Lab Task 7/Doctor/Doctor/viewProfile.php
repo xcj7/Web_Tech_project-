@@ -70,6 +70,6 @@ require 'Controller/showData.php';
 
 </fieldset> 
 </div>
-
+<?php require 'Bar/footer.php';?>
 </body>  
 </html> 
